@@ -1,14 +1,17 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import * as React from "react";
 
 const LoginInputBlock = styled(motion.div)``;
 
-const LoginInputLabel = styled(motion.label)``;
+const LoginInputLabel = styled(motion.label)`
+  font-family: "Aldrich", sans-serif;
+  margin-left: 15px;
+`;
 
 const LoginInput = styled(motion.input)`
   width: 240px;
   height: 48px;
+  margin-top: 5px;
   border-bottom: none;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.6);
@@ -26,45 +29,43 @@ const LoginInput = styled(motion.input)`
   }
 `;
 
-const loginInputAnimation: any = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { delay: 5, duration: 0.5 },
-};
+// const loginInputAnimation: any = {
+//   initial: { opacity: 0 },
+//   animate: { opacity: 1 },
+//   transition: { delay: 5, duration: 0.5 },
+// };
 
 type InputForAccountType = {
   type: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
 };
 
-export const InputForAccount = ({ type }: InputForAccountType) => {
+export const InputForAccount = ({
+  type,
+  name,
+  value,
+  onChange,
+  required = true,
+}: InputForAccountType) => {
   return (
     <LoginInputBlock
-      variants={loginInputAnimation}
-      initial="initial"
-      animate="animate"
-      transition={{
-        delay: 0.5,
-      }}
+    // variants={loginInputAnimation}
+    // initial="initial"
+    // animate="animate"
+    // transition={{
+    //   delay: 0.5,
+    // }}
     >
-      <LoginInputLabel
-        variants={loginInputAnimation}
-        initial="initial"
-        animate="animate"
-        transition={{
-          delay: 0.5,
-        }}
-      >
-        {type}
-      </LoginInputLabel>
+      <LoginInputLabel>{name}</LoginInputLabel>
       <LoginInput
         type={type}
-        name={type}
-        variants={loginInputAnimation}
-        initial="initial"
-        animate="animate"
-        transition={{
-          delay: 0.5,
-        }}
+        name={name}
+        value={value}
+        onChange={onChange}
+        required={required}
       />
     </LoginInputBlock>
   );

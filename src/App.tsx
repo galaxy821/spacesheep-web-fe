@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import RouteInfo from "./Route";
-import { GlobalTheme, theme } from "./assets/theme";
+import RouteInfo from "./pages/Route";
+import { GlobalTheme, theme } from "./style/theme";
 
 function App() {
   return (
