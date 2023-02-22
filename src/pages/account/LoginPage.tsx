@@ -12,6 +12,7 @@ const LoginPage = () => {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert(state.email + " " + state.password);
+    /**api 통신하는 곳*/
   };
   return (
     <>

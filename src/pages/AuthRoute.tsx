@@ -7,6 +7,7 @@ type ProtectedRouteType = {
 };
 export const AuthRoute = ({ authAccess, children }: ProtectedRouteType) => {
   const [token, setToken] = useState(false);
+  /** */
 
   if (authAccess) {
     if (!token) {

@@ -21,6 +21,7 @@ const SignupPage = () => {
     e.preventDefault();
     if (state.password === state.rePassword) {
       alert("회원가입하는 부분");
+      /**api 통신하는 곳*/
       navigate("/account/login", { replace: true });
     } else {
       alert("비밀번호가 다릅니다.");
